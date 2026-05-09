@@ -2,7 +2,9 @@ require('dotenv').config();
 const express=require('express');
 const connectdb=require('./config/db')
 const app=express();
+const router=require('./routes/notes')
 connectdb();
+app.use('/notes',router)
 app.get('/',(req,res)=>
 {
     res.send('hello there')
