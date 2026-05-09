@@ -1,4 +1,16 @@
 const note=require('../models/note')
+const deletenote=async (req,res)=>{
+    try{
+        const id=req.params.id
+      await  note.findByIdAndDelete(id)
+        res.json({message: 'suscessfully deleted the note'})
+    }
+    catch(error)
+    {
+        console.log('error in deleting',error.message)
+        res.status(500)
+    }
+}
 const createnote= async (req,res)=>
 {
 try{
@@ -16,4 +28,4 @@ catch(error)
 }
 }
 
-module.exports={createnote}
+module.exports={createnote,deletenote}
