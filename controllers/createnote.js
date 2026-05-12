@@ -20,6 +20,7 @@ try{
     const newnote=new note({title,content})
     await newnote.save()
     res.json(newnote)
+   // console.log(newnote)
 }
 catch(error)
 {
@@ -27,5 +28,6 @@ catch(error)
     res.status(500).json({ message: error.message })
 }
 }
+
 
 module.exports={createnote,deletenote}
